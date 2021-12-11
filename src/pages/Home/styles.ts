@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../global/GlobalStyles";
 
 export const Container = styled.div`
   display: flex;
@@ -39,4 +40,8 @@ export const ButtonContainer = styled.div`
   max-width: 325px;
 
   margin-top: 16px;
+`;
+
+export const Error = styled.span`
+  color: ${Colors.tertiary};
 `;
