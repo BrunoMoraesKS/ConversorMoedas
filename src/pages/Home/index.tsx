@@ -94,7 +94,7 @@ const Home = () => {
         />
 
         <S.WelcomeText>
-          O aplicativo ConversorMoedas! permite que você converta valores em
+          O aplicativo ConversorMoedas! permite que você converta um valor em
           real, dólar e euro.
           <br />
           Aproveite! =D

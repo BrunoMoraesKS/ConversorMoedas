@@ -1,6 +1,6 @@
 <h1>ConversorMoedas!</h1>
 <br/>
- O aplicativo ConversorMoedas! permite que você converta valores em real, dólar e euro.
+ O aplicativo ConversorMoedas! permite que você converta um valor em real, dólar e euro.
 <br />
 <h2>Para rodar:</h2>
 <br/>
