@@ -37,7 +37,7 @@ const ConversionResult = ({ data, value }: IConversionResultProps) => {
 
         {Object.keys(data).map((item) => {
           const numberBid = Number(data[item].bid);
-          const numberValue = value.replace(".", "").replace(",", ".");
+          const numberValue = value.replaceAll(".", "").replace(",", ".");
           const convertedValue = numberBid * Number(numberValue);
 
           return (

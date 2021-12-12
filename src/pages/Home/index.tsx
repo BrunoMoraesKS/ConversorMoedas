@@ -129,7 +129,6 @@ const Home = () => {
               />
             )}
             name="value"
-            defaultValue=""
           />
 
           <S.Error>
@@ -151,7 +150,6 @@ const Home = () => {
               />
             )}
             name="currency"
-            defaultValue=""
           />
 
           <S.Error>
