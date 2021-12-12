@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-
-import * as S from "./styles";
+import React from "react";
+import Input from "../../components/Input";
 import SeparatorLine from "../../components/SeparatorLine";
 import Title from "../../components/Title";
-import Input from "../../components/Input";
 import { IConverterData } from "../../interfaces/converter";
+import * as S from "./styles";
 
 interface IConversionResultProps {
   data: IConverterData;

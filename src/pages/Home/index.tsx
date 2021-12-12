@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import * as S from "./styles";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import LoadingScreen from "../../components/LoadingScreen";
-import SeparatorLine from "../../components/SeparatorLine";
-import Title from "../../components/Title";
+import NumberFormat from "react-number-format";
+import * as yup from "yup";
+import { AnyObject } from "yup/lib/types";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
-import { AnyObject } from "yup/lib/types";
-import NumberFormat from "react-number-format";
+import SeparatorLine from "../../components/SeparatorLine";
+import Title from "../../components/Title";
 import { IConverterData } from "../../interfaces/converter";
 import ConversionResult from "../../modules/ConversionResult";
+import * as S from "./styles";
 
 const schema = yup.object().shape({
   value: yup.string().required("Digite o Valor."),
@@ -118,6 +117,7 @@ const Home = () => {
               required={true}
               name="value"
               onChange={onChange}
+              data-testid="value"
             />
           )}
           name="value"
@@ -137,6 +137,7 @@ const Home = () => {
               name="currency"
               onChange={onChange}
               data={valuesData}
+              data-testid="currency"
             />
           )}
           name="currency"
@@ -148,7 +149,11 @@ const Home = () => {
         </S.Error>
 
         <S.ButtonContainer>
-          <Button variant="primary" onClick={handleSubmit(onSubmit)}>
+          <Button
+            data-testid="converterButton"
+            variant="primary"
+            onClick={handleSubmit(onSubmit)}
+          >
             Converter
           </Button>
         </S.ButtonContainer>

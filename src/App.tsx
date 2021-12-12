@@ -1,8 +1,8 @@
-import * as S from "./styles";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import { GlobalStyle } from "./global/GlobalStyles";
 import Home from "./pages/Home";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import * as S from "./styles";
 
 function App() {
   return (
