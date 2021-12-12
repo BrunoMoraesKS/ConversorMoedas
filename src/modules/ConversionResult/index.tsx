@@ -41,6 +41,7 @@ const ConversionResult = ({ data, value }: IConversionResultProps) => {
           return (
             <>
               <Input
+                key={data[item].code}
                 label={data[item].name.replace(/^[^/]*[/]/, "")}
                 disabled
                 type="number"
