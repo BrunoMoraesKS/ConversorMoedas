@@ -6,6 +6,7 @@ import NumberFormat from "react-number-format";
 import * as yup from "yup";
 import { AnyObject } from "yup/lib/types";
 import Button from "../../components/Button";
+import LoadingScreen from "../../components/LoadingScreen";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
 import SeparatorLine from "../../components/SeparatorLine";
@@ -80,91 +81,101 @@ const Home = () => {
   };
 
   return (
-    <S.Container>
-      <SeparatorLine />
+    <>
+      {loading && <LoadingScreen />}
 
-      <Title size={2.1} variant="h2" content="Bem vindo ao ConversorMoedas!" />
+      <S.Container>
+        <SeparatorLine />
 
-      <S.WelcomeText>
-        O aplicativo ConversorMoedas! permite que você converta valores em real,
-        dólar e euro.
-        <br />
-        Aproveite! =D
-      </S.WelcomeText>
-
-      <SeparatorLine />
-
-      <Title
-        size={1}
-        variant="h3"
-        content="Informe o valor e a moeda para conversão"
-      />
-
-      <S.Form>
-        <Controller
-          control={control}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <NumberFormat
-              decimalSeparator=","
-              thousandSeparator="."
-              decimalScale={2}
-              fixedDecimalScale
-              customInput={Input}
-              allowNegative={false}
-              id="value"
-              placeholder="Digite o valor..."
-              label="Valor"
-              required={true}
-              name="value"
-              onChange={onChange}
-              data-testid="value"
-            />
-          )}
-          name="value"
-          defaultValue=""
+        <Title
+          size={2.1}
+          variant="h2"
+          content="Bem vindo ao ConversorMoedas!"
         />
 
-        <S.Error>{errors.value?.message ? errors.value?.message : ""}</S.Error>
+        <S.WelcomeText>
+          O aplicativo ConversorMoedas! permite que você converta valores em
+          real, dólar e euro.
+          <br />
+          Aproveite! =D
+        </S.WelcomeText>
 
-        <Controller
-          control={control}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Select
-              id="currency"
-              placeholder="Selecione a moeda..."
-              label="Moeda"
-              required={true}
-              name="currency"
-              onChange={onChange}
-              data={valuesData}
-              data-testid="currency"
-            />
-          )}
-          name="currency"
-          defaultValue=""
+        <SeparatorLine />
+
+        <Title
+          size={1}
+          variant="h3"
+          content="Informe o valor e a moeda para conversão"
         />
 
-        <S.Error>
-          {errors.currency?.message ? errors.currency?.message : ""}
-        </S.Error>
+        <S.Form>
+          <Controller
+            control={control}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <NumberFormat
+                decimalSeparator=","
+                thousandSeparator="."
+                decimalScale={2}
+                fixedDecimalScale
+                customInput={Input}
+                allowNegative={false}
+                id="value"
+                placeholder="Digite o valor..."
+                label="Valor"
+                required={true}
+                name="value"
+                onChange={onChange}
+                data-testid="value"
+              />
+            )}
+            name="value"
+            defaultValue=""
+          />
 
-        <S.ButtonContainer>
-          <Button
-            data-testid="converterButton"
-            variant="primary"
-            onClick={handleSubmit(onSubmit)}
-          >
-            Converter
-          </Button>
-        </S.ButtonContainer>
-      </S.Form>
+          <S.Error>
+            {errors.value?.message ? errors.value?.message : ""}
+          </S.Error>
 
-      <SeparatorLine />
+          <Controller
+            control={control}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <Select
+                id="currency"
+                placeholder="Selecione a moeda..."
+                label="Moeda"
+                required={true}
+                name="currency"
+                onChange={onChange}
+                data={valuesData}
+                data-testid="currency"
+              />
+            )}
+            name="currency"
+            defaultValue=""
+          />
 
-      {showResultModule && (
-        <ConversionResult data={resultData} value={getValues("value")} />
-      )}
-    </S.Container>
+          <S.Error>
+            {errors.currency?.message ? errors.currency?.message : ""}
+          </S.Error>
+
+          <S.ButtonContainer>
+            <Button
+              data-testid="converterButton"
+              variant="primary"
+              onClick={handleSubmit(onSubmit)}
+            >
+              Converter
+            </Button>
+          </S.ButtonContainer>
+        </S.Form>
+
+        <SeparatorLine />
+
+        {showResultModule && (
+          <ConversionResult data={resultData} value={getValues("value")} />
+        )}
+      </S.Container>
+    </>
   );
 };
 
