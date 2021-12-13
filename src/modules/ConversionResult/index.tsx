@@ -20,7 +20,7 @@ const ConversionResult = ({ data, value }: IConversionResultProps) => {
     const hours = date.getHours();
     const minutes = date.getMinutes();
 
-    return `${day}/${month}/${year} ${hours}:${
+    return `${day}/${month}/${year} ${hours < 10 ? "0" + hours : hours}:${
       minutes < 10 ? "0" + minutes : minutes
     }`;
   };
