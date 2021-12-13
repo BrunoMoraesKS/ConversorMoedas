@@ -90,7 +90,7 @@ const Home = () => {
         <Title
           size={2.1}
           variant="h2"
-          content="Bem-vindo ao ConversorMoedas!"
+          content="Bem-vindo(a) ao ConversorMoedas!"
         />
 
         <S.WelcomeText>

@@ -3,6 +3,7 @@ import Input from "../../components/Input";
 import SeparatorLine from "../../components/SeparatorLine";
 import Title from "../../components/Title";
 import { IConverterData } from "../../interfaces/converter";
+import NumberFormat from "react-number-format";
 import * as S from "./styles";
 
 interface IConversionResultProps {
@@ -42,12 +43,17 @@ const ConversionResult = ({ data, value }: IConversionResultProps) => {
 
           return (
             <>
-              <Input
+              <NumberFormat
                 key={data[item].code}
+                decimalSeparator=","
+                thousandSeparator="."
+                decimalScale={2}
+                fixedDecimalScale
+                customInput={Input}
                 label={data[item].name.replace(/^[^/]*[/]/, "")}
+                required={true}
+                value={convertedValue}
                 disabled
-                type="number"
-                value={convertedValue.toFixed(2)}
               />
             </>
           );
