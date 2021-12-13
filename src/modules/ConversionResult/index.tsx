@@ -51,7 +51,6 @@ const ConversionResult = ({ data, value }: IConversionResultProps) => {
                 fixedDecimalScale
                 customInput={Input}
                 label={data[item].name.replace(/^[^/]*[/]/, "")}
-                required={true}
                 value={convertedValue}
                 disabled
               />
